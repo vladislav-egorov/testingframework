@@ -10,9 +10,9 @@ import static org.junit.Assert.fail;
 public class DriverHelpers {
 
     public static WebDriver firefoxDriverInit(){
-        WebDriver driver = new FirefoxDriver();
         System.setProperty("webdriver.gecko.driver",
-                "/src/main/resources/geckodriver");
+                "src/main/resources/geckodriver");
+        WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         return driver;

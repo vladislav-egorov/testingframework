@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +36,7 @@ public class AbstractPage {
         driver.findElement(By.name(name)).click();
     }
 
-    void inputValueInFieldByXPath(String XPath, String value){
+    public void inputValueInFieldByXPath(String XPath, String value){
         driver.findElement(By.id(XPath)).click();
         driver.findElement(By.id(XPath)).clear();
         driver.findElement(By.id(XPath)).sendKeys(value);
@@ -58,4 +59,9 @@ public class AbstractPage {
                 .selectByVisibleText(textOfElement);
     }
 
+    public static void inputValueInField(WebElement field, String value){
+        field.click();
+        field.clear();
+        field.sendKeys(value);
+    }
 }

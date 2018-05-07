@@ -1,22 +1,24 @@
-# language: ru
+#language: en
+
 @all
-Функция: Снятие денег со счета
 
-  Сценарий: Создание контрагента
+Feature: Example of taking the test arguments
 
-    Дано открыть главную систему
-    * вход в систему по логину и паролю "login" "password"
+  Scenario: Take argument from string
 
-    * пользователь (нажимает кнопку верхнего меню) "Контрагент"
-    * пользователь (нажимает кнопку) "Создать контрагента"
+    Given open system
+    Given login with login and password "testuser4" "1234512345"
+    Given click contr menu
+    Given click create contr button
 
-    * пользователь (вводит значение в поле) "Описание"
-    * пользователь (вводит значение в поле) "Имя"
-    * пользователь (вводит значение в поле) "Аккаунт"
-    * пользователь (вводит значение в поле) "Название Банка"
-    * пользователь (вводит значение в поле) "Аккаунт банка"
-    * пользователь (вводит значение в поле) "БИК"
-    * пользователь (нажимает на кнопку) "1"
-    * пользователь (нажимает на кнопку) "2"
+    Given set value in field Contr Description "Description"
+    Given set value in field Contr Name "Contr Name"
+    Given set value in field Contr Account "112344"
+    Given set value in field Bank Name "Bank Name"
+    Given set value in field Bank Account "123000333"
+    Given set value in field Bank Bic "93128372"
 
-    Тогда пользователь завершает сеанс
+    Given click elementOne
+    Given click elementTwo
+
+    Then user close session
